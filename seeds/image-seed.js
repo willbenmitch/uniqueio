@@ -43,7 +43,7 @@ module.exports = () => {
                         method: "POST",
                         uri: 'https://eastus2.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
                         body: {
-                            url: 'http://b08d5953.ngrok.io'+(image.src)
+                            url: 'https://uniqueio.herokuapp.com'+(image.src)
                         },
                         json: true,
                         headers: {
