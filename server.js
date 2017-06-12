@@ -13,7 +13,7 @@ const   express = require('express'),
         
         mongoose.Promise = global.Promise;
 
-app.set('port', (process.env.PORT || 80));
+app.set('port', (80));
 
 // ALLOW ACCESS TO API
 app.use((req,res, next) => {
