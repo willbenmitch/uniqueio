@@ -1,0 +1,15 @@
+.button-center {
+    display: inline-block;
+}
+
+.header_link-left {
+    position: absolute;
+    left: 1vw;
+    top: 1vh;
+}
+
+.header_link-right {
+    position: absolute;
+    right: 1vw;
+    top: 1vh;
+}

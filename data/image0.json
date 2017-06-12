@@ -1,0 +1,204 @@
+[
+  {
+    "faceId": "f3ec64a8-1409-461e-b1c0-fbfb85bda5a4",
+    "faceRectangle": {
+      "top": 176,
+      "left": 567,
+      "width": 235,
+      "height": 235
+    },
+    "faceLandmarks": {
+      "pupilLeft": {
+        "x": 633.7,
+        "y": 240.9
+      },
+      "pupilRight": {
+        "x": 730.4,
+        "y": 237.6
+      },
+      "noseTip": {
+        "x": 688.5,
+        "y": 298.4
+      },
+      "mouthLeft": {
+        "x": 638.2,
+        "y": 351.9
+      },
+      "mouthRight": {
+        "x": 735.4,
+        "y": 349.6
+      },
+      "eyebrowLeftOuter": {
+        "x": 591.7,
+        "y": 217.6
+      },
+      "eyebrowLeftInner": {
+        "x": 668.8,
+        "y": 210.9
+      },
+      "eyeLeftOuter": {
+        "x": 621.0,
+        "y": 241.8
+      },
+      "eyeLeftTop": {
+        "x": 636.9,
+        "y": 234.6
+      },
+      "eyeLeftBottom": {
+        "x": 637.0,
+        "y": 245.9
+      },
+      "eyeLeftInner": {
+        "x": 653.4,
+        "y": 240.2
+      },
+      "eyebrowRightInner": {
+        "x": 704.8,
+        "y": 210.8
+      },
+      "eyebrowRightOuter": {
+        "x": 777.6,
+        "y": 224.4
+      },
+      "eyeRightInner": {
+        "x": 715.9,
+        "y": 237.8
+      },
+      "eyeRightTop": {
+        "x": 733.0,
+        "y": 232.5
+      },
+      "eyeRightBottom": {
+        "x": 732.6,
+        "y": 243.2
+      },
+      "eyeRightOuter": {
+        "x": 748.1,
+        "y": 239.4
+      },
+      "noseRootLeft": {
+        "x": 672.1,
+        "y": 241.6
+      },
+      "noseRootRight": {
+        "x": 698.7,
+        "y": 240.1
+      },
+      "noseLeftAlarTop": {
+        "x": 661.8,
+        "y": 280.0
+      },
+      "noseRightAlarTop": {
+        "x": 706.5,
+        "y": 279.2
+      },
+      "noseLeftAlarOutTip": {
+        "x": 651.1,
+        "y": 298.8
+      },
+      "noseRightAlarOutTip": {
+        "x": 717.8,
+        "y": 297.9
+      },
+      "upperLipTop": {
+        "x": 683.8,
+        "y": 334.3
+      },
+      "upperLipBottom": {
+        "x": 683.8,
+        "y": 341.6
+      },
+      "underLipTop": {
+        "x": 685.0,
+        "y": 358.1
+      },
+      "underLipBottom": {
+        "x": 684.5,
+        "y": 368.8
+      }
+    },
+    "faceAttributes": {
+      "smile": 0.154,
+      "headPose": {
+        "pitch": 0.0,
+        "roll": -0.2,
+        "yaw": 4.1
+      },
+      "gender": "male",
+      "age": 37.5,
+      "facialHair": {
+        "moustache": 0.5,
+        "beard": 0.6,
+        "sideburns": 0.3
+      },
+      "glasses": "ReadingGlasses",
+      "emotion": {
+        "anger": 0.0,
+        "contempt": 0.002,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happiness": 0.154,
+        "neutral": 0.842,
+        "sadness": 0.001,
+        "surprise": 0.0
+      },
+      "blur": {
+        "blurLevel": "low",
+        "value": 0.16
+      },
+      "exposure": {
+        "exposureLevel": "overExposure",
+        "value": 0.78
+      },
+      "noise": {
+        "noiseLevel": "medium",
+        "value": 0.4
+      },
+      "makeup": {
+        "eyeMakeup": false,
+        "lipMakeup": true
+      },
+      "accessories": [
+        {
+          "type": "glasses",
+          "confidence": 0.99
+        }
+      ],
+      "occlusion": {
+        "foreheadOccluded": false,
+        "eyeOccluded": false,
+        "mouthOccluded": false
+      },
+      "hair": {
+        "bald": 0.01,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "brown",
+            "confidence": 1.0
+          },
+          {
+            "color": "black",
+            "confidence": 0.61
+          },
+          {
+            "color": "red",
+            "confidence": 0.26
+          },
+          {
+            "color": "other",
+            "confidence": 0.19
+          },
+          {
+            "color": "gray",
+            "confidence": 0.17
+          },
+          {
+            "color": "blond",
+            "confidence": 0.15
+          }
+        ]
+      }
+    }
+  }
+]
