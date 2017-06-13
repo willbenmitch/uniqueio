@@ -8,14 +8,12 @@ import CircularProgress from 'material-ui/CircularProgress';
 import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
-const extPort =   process.env.PORT ||
+const extPort =   process.env.PUBLIC_URL ||
                   'http://localhost:80';
 
 console.log (extPort);
 console.log('environment');
 console.log(process.env);
-console.log('env port');
-console.log(process.env.PORT);
 
 class App extends Component {
   constructor() {
