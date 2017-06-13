@@ -8,7 +8,8 @@ import CircularProgress from 'material-ui/CircularProgress';
 import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
-const extPort = 'https://uniqueio.herokuapp.com:80';
+const extPort =   process.env.PORT ||
+                  'http://localhost:80';
 
 class App extends Component {
   constructor() {
