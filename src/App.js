@@ -11,6 +11,8 @@ injectTapEventPlugin();
 const extPort =   process.env.PORT ||
                   'http://localhost:80';
 
+console.log (extPort);
+
 class App extends Component {
   constructor() {
     super();
