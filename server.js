@@ -20,7 +20,7 @@ app.use((req,res, next) => {
     next();
 });
 // USE PUBLIC DIRECTORY
-if (process.env === "production") {
+if (process.env.NODE_ENV === "production") {
     app.use(express.static(__dirname+'/build'));
 } else {
     app.use(express.static(__dirname+'/public'));
