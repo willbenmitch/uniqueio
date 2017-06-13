@@ -6,14 +6,11 @@ import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
 import CircularProgress from 'material-ui/CircularProgress';
 import injectTapEventPlugin from "react-tap-event-plugin";
+import Port from './Port';
 injectTapEventPlugin();
 
-const extPort =   process.env.PUBLIC_URL ||
-                  'http://localhost:80';
 
-console.log (extPort);
-console.log('environment');
-console.log(process.env);
+console.log(Port());
 
 class App extends Component {
   constructor() {
@@ -37,7 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(extPort+'/loadImages')
+    axios.get(Port()+'/loadImages')
     .then((res) => {
       console.log(res);
       this.setState({images: res.data});
@@ -46,7 +43,7 @@ class App extends Component {
 
   handleNewImage(src) {
         this.setState({circularDisplay: "initial"});
-        axios.post(extPort+'/newImage', src)
+        axios.post(Port()+'/newImage', src)
         .then((res) => {
           console.log('new image');
           this.handleFilterRequest(res);
@@ -74,7 +71,7 @@ class App extends Component {
   }
 
   handleLike(id) {
-    axios.get(extPort+'/like/'+id)
+    axios.get(Port()+'/like/'+id)
     .then((update) => {
       let images = this.state.images.map((image, i) => {
         if (image._id === id) {
@@ -98,7 +95,7 @@ class App extends Component {
 
   handleFilterRequest(imgObj) {
     let imageArray = this.state.images.slice();
-    axios.get(extPort+'/filteredImage/'+imgObj.data._id)
+    axios.get(Port()+'/filteredImage/'+imgObj.data._id)
     .then(updatedImage => {
       if (typeof updatedImage.data === "string") {
         window.alert(updatedImage.data);

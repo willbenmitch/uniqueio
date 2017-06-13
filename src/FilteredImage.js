@@ -3,9 +3,7 @@ import GridTile from 'material-ui/GridList/GridTile';
 import IconButton from 'material-ui/IconButton';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import './image.css';
-
-const extPort =   process.env.PUBLIC_URL ||
-                  'http://localhost:80';
+import Port from './Port';
 
 class FilteredImage extends Component {
     render() {
@@ -14,7 +12,7 @@ class FilteredImage extends Component {
                         actionIcon={<IconButton onTouchTap={() => {this.props.handleLike(this.props.image._id)}}><ActionFavoriteBorder color="white" /></IconButton>}
                         actionPosition='left'
                         children={<img  className="img"
-                                        src={extPort+this.props.image.src}
+                                        src={Port()+this.props.image.src}
                                         style={typeof this.props.image.cssFilter === "undefined" ? {visibility: "hidden"} : {filter: this.props.image.cssFilter.join(" ")}}
                                         cols={1}
                                         rows={1}/>}
