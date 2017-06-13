@@ -4,7 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import './image.css';
 
-const extPort = process.env.PORT || 'http://localhost:80';
+const extPort = 'https://uniqueio.herokuapp.com:80';
 
 class FilteredImage extends Component {
     render() {

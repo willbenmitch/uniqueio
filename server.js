@@ -13,11 +13,7 @@ const   express = require('express'),
         
         mongoose.Promise = global.Promise;
 
-if (!process.env.PORT) {
-    const port = 80
-} else {
-    const port = process.env.PORT;
-}
+const port = 80;
 
 // ALLOW ACCESS TO API
 app.use((req,res, next) => {
