@@ -12,6 +12,10 @@ const extPort =   process.env.PORT ||
                   'http://localhost:80';
 
 console.log (extPort);
+console.log('environment');
+console.log(process.env);
+console.log('env port');
+console.log(process.env.PORT);
 
 class App extends Component {
   constructor() {
