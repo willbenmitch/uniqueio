@@ -21,9 +21,9 @@ app.use((req,res, next) => {
 });
 // USE PUBLIC DIRECTORY
 if (process.env === "production") {
-    app.use(express.static(path.join(__dirname, '/build')));
+    app.use(express.static(__dirname+'/build'));
 } else {
-    app.use(express.static(path.join(__dirname, '/public')));
+    app.use(express.static(__dirname+'/public'));
 }
 
 // SET BODY PARSING
