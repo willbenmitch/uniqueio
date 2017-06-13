@@ -47,9 +47,6 @@ db.once('open', function() {
 seedImages();
 
 // ROUTE HANDLERS
-app.get('*', function (req, res) {
-    res.sendFile(path.resolve((__dirname + '/build/index.html')));
-});
 app.get('/loadImages', (req, res) => {
     Image.find({}).then(images => res.json(images));
 });
@@ -113,6 +110,10 @@ app.get('/filteredImage/:id', (req, res) => {
             console.log(err);
         });
     });     
+});
+
+app.get('*', function (req, res) {
+    res.sendFile(path.resolve((__dirname + '/build/index.html')));
 });
 
 // LISTEN FOR REQUESTS
