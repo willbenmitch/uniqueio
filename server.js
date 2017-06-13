@@ -9,7 +9,8 @@ const   express = require('express'),
         Image = require('./models/images'),
         filter = require('./filter'),
         fs = require('fs'),
-        seedImages = require('./seeds/image-seed');
+        seedImages = require('./seeds/image-seed'),
+        path = require('path');
         
         mongoose.Promise = global.Promise;
 
@@ -46,6 +47,9 @@ db.once('open', function() {
 seedImages();
 
 // ROUTE HANDLERS
+app.get('*', function (req, res) {
+    res.sendFile(path.resolve((__dirname + '/build/index.html')));
+});
 app.get('/loadImages', (req, res) => {
     Image.find({}).then(images => res.json(images));
 });
