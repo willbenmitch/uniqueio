@@ -13,8 +13,6 @@ const   express = require('express'),
         
         mongoose.Promise = global.Promise;
 
-app.set('port', (80));
-
 // ALLOW ACCESS TO API
 app.use((req,res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -23,21 +21,18 @@ app.use((req,res, next) => {
 });
 // USE PUBLIC DIRECTORY
 app.use(express.static(__dirname + '/public'));
-
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static('client/build'));
-}
+app.use(express.static(__dirname + '/client/build'));
 
 // SET BODY PARSING
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // MONGOOSE CONNECTION
-mongoose.connect('mongodb://localhost/data/db/');
+mongoose.connect(process.env.MONGOLAB_URI);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-	console.log("Connected to db at /data/db/")
+	console.log("Connected to db")
 });
 
 seedImages();
@@ -109,6 +104,6 @@ app.get('/filteredImage/:id', (req, res) => {
 });
 
 // LISTEN FOR REQUESTS
-app.listen(app.get('port'), () => {
-    console.log('Server listening on 80');
+app.listen(prcoess.env.PORT || 80, () => {
+    console.log('Server listening');
 });
