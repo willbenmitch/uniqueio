@@ -20,8 +20,11 @@ app.use((req,res, next) => {
     next();
 });
 // USE PUBLIC DIRECTORY
-app.use(express.static(path.join(__dirname, '/public')));
-app.use(express.static(path.join(__dirname, '/client/build')));
+if (process.env === "production") {
+    app.use(express.static(path.join(__dirname, '/build')));
+} else {
+    app.use(express.static(path.join(__dirname, '/public')));
+}
 
 // SET BODY PARSING
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -1,11 +1,13 @@
 {
-  "name": "react-rest-back",
+  "name": "uniqueio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +18,17 @@
     "mongodb": "^2.2.27",
     "mongoose": "^4.10.4",
     "request": "^2.81.0",
-    "request-promise": "^4.2.1"
+    "request-promise": "^4.2.1",
+    "axios": "^0.16.1",
+    "bootstrap": "^3.3.7",
+    "material-ui": "^0.18.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^3.0.2",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-webcam": "^0.2.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
   }
 }
