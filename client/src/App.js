@@ -8,7 +8,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
-const extPort = 'http://127.0.0.1:80'
+const extPort = process.env.PORT || 'http://127.0.0.1:80';
 
 class App extends Component {
   constructor() {

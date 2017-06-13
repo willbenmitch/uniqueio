@@ -4,7 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import './image.css';
 
-const extPort = 'http://127.0.0.1:80'
+const extPort = process.env.PORT || 'http://127.0.0.1:80';
 
 class FilteredImage extends Component {
     render() {

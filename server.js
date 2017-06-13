@@ -20,8 +20,8 @@ app.use((req,res, next) => {
     next();
 });
 // USE PUBLIC DIRECTORY
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/client/build'));
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 // SET BODY PARSING
 app.use(bodyParser.urlencoded({ extended: false }));
