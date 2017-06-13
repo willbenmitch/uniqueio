@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-import registerServiceWorker from './registerServiceWorker';
 import App from './App';
 import Compare from './Compare';
 import Selfie from './Selfie';
@@ -29,4 +28,3 @@ ReactDOM.render(
     </Router>,
     document.getElementById('root')
 );
-registerServiceWorker();

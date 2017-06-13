@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/data/db");
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -104,6 +104,6 @@ app.get('/filteredImage/:id', (req, res) => {
 });
 
 // LISTEN FOR REQUESTS
-app.listen(prcoess.env.PORT || 80, () => {
+app.listen(process.env.PORT || 80, () => {
     console.log('Server listening');
 });
