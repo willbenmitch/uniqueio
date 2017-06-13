@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // MONGOOSE CONNECTION
-mongoose.connect("mongodb://heroku_xb9c8mcp:heroku_xb9c8mcp@ds123722.mlab.com:23722/heroku_xb9c8mcp" || "mongodb://localhost/data/db");
+mongoose.connect("mongodb://ds123722.mlab.com:23722/heroku_xb9c8mcp" || "mongodb://localhost/data/db");
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
