@@ -116,6 +116,10 @@ app.get('*', function (req, res) {
     res.sendFile(path.resolve((__dirname + '/build/index.html')));
 });
 
+app.post('*', function(req, res) => {
+    req.sendFile(path.resolve(((__dirname + 'build/index.html')));
+});
+
 // LISTEN FOR REQUESTS
 app.listen(app.get('port'), () => {
     console.log('Server listening on '+app.get('port') );
