@@ -13,7 +13,7 @@ const   express = require('express'),
         
         mongoose.Promise = global.Promise;
 
-const port = 80;
+app.set('port', (process.env.PORT || 80));
 
 // ALLOW ACCESS TO API
 app.use((req,res, next) => {
@@ -109,6 +109,6 @@ app.get('/filteredImage/:id', (req, res) => {
 });
 
 // LISTEN FOR REQUESTS
-app.listen(port, () => {
-    console.log('Server listening on '+port );
+app.listen(app.get('port'), () => {
+    console.log('Server listening on '+app.get('port') );
 });
