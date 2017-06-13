@@ -33,7 +33,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/data/db");
+const uriString =   process.env.MONGOLAB_COBALT_URI ||
+                    "mongodb://localhost/data/db";
+
+mongoose.connect(uriString);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
