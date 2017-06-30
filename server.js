@@ -1,4 +1,4 @@
-const   aws = require('aws.sdk'),
+const   aws = require('aws-sdk'),
         express = require('express'),
         request = require('request'),
         rp = require('request-promise'),
