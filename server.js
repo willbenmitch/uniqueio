@@ -14,7 +14,7 @@ const   aws = require('aws-sdk'),
         
         mongoose.Promise = global.Promise;
 
-if (process.env.NODE_ENV !== "production") {
+if (!process.env.MS_API_KEY) {
     const keys = require('./keys')
 }
 
@@ -82,13 +82,8 @@ app.post('/newImage', (req, res) => {
 app.get('/filteredImage/:id', (req, res) => {
     console.log(req.params.id);
     Image.findById(req.params.id, (err, image) => {
-        if (process.env.NODE_ENV === "production") {
-            let msKey = process.env.MS_API_KEY;
-            let msValue = process.env.MS_API_VALUE;
-        } else {
-            let msKey = keys.msAPI.key;
-            let msValue = keys.msAPI.value
-        }
+        let msKey = process.env.MS_API_KEY || keys.msAPI.key;
+        let msValue = process.env.MS_API_VALUE || keys.msAPI.value;
         let rpOptions = {
             method: "POST",
             uri: 'https://eastus2.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
