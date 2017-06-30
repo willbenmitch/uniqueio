@@ -80,7 +80,7 @@ app.get('/filteredImage/:id', (req, res) => {
     console.log(req.params.id);
     Image.findById(req.params.id, (err, image) => {
         if (process.env.NODE_ENV === "production") {
-            let msKey = process.env.MS_API_Key;
+            let msKey = process.env.MS_API_KEY;
             let msValue = process.env.MS_API_VALUE;
         } else {
             let msKey = keys.msAPI.key;
