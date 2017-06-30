@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const Image = require('../models/images');
-const keys = require('../keys');
 const rp = require('request-promise');
 const filter = require('../filter');
+
+if (!process.env.MS_API_KEY) {
+    const keys = require('../keys');
+}
 
 module.exports = () => {
     Image.find({}, (err, images) => {
@@ -38,7 +41,8 @@ module.exports = () => {
             ];
             imagesToSeed.forEach((image, i) => {
                 setTimeout(() => {
-                    let key = keys.msAPI;
+                    let msKey = process.env.MS_API_KEY || keys.msAPI.key;
+                    let msValue = process.env.MS_API_VALUE || keys.msAPI.value;
                     let rpOptions = {
                         method: "POST",
                         uri: 'https://eastus2.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
@@ -48,7 +52,7 @@ module.exports = () => {
                         json: true,
                         headers: {
                             'Content-type': 'application/json',
-                            [key.key] : [key.value]
+                            [msKey] : [msValue]
                         }
                     }
                     rp(rpOptions).then((msData) => {
