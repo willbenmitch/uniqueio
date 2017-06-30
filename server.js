@@ -6,7 +6,6 @@ const   aws = require('aws-sdk'),
         bodyParser = require('body-parser'),
         mongoose = require('mongoose'),
         base64Img = require('base64-img'),
-        keys = require('./keys'),
         Image = require('./models/images'),
         filter = require('./filter'),
         fs = require('fs'),
@@ -14,6 +13,10 @@ const   aws = require('aws-sdk'),
         path = require('path');
         
         mongoose.Promise = global.Promise;
+
+if (process.env.NODE_ENV !== "production") {
+    const keys = require('./keys')
+}
 
 app.set('port', (process.env.PORT || 80));
 
