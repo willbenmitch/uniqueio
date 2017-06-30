@@ -1,4 +1,5 @@
-const   express = require('express'),
+const   aws = require('aws.sdk'),
+        express = require('express'),
         request = require('request'),
         rp = require('request-promise'),
         app = express(),
@@ -78,7 +79,13 @@ app.post('/newImage', (req, res) => {
 app.get('/filteredImage/:id', (req, res) => {
     console.log(req.params.id);
     Image.findById(req.params.id, (err, image) => {
-        let key = keys.msAPI;
+        if (process.env.NODE_ENV === "production") {
+            let msKey = process.env.MS_API_Key;
+            let msValue = process.env.MS_API_VALUE;
+        } else {
+            let msKey = keys.msAPI.key;
+            let msValue = keys.msAPI.value
+        }
         let rpOptions = {
             method: "POST",
             uri: 'https://eastus2.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
@@ -88,7 +95,7 @@ app.get('/filteredImage/:id', (req, res) => {
             json: true,
             headers: {
                 'Content-type': 'application/json',
-                [key.key] : [key.value]
+                [msKey] : [msValue]
             }
         }
         rp(rpOptions).then((msData) => {
@@ -114,10 +121,6 @@ app.get('/filteredImage/:id', (req, res) => {
 
 app.get('*', function (req, res) {
     res.sendFile(path.resolve((__dirname + '/build/index.html')));
-});
-
-app.post('*', function(req, res) => {
-    req.sendFile(path.resolve(((__dirname + 'build/index.html')));
 });
 
 // LISTEN FOR REQUESTS
